@@ -1,26 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Timer = () => {
   const [timer, setTimer] = useState(0);
-
-  useEffect(() => {
-    clearInterval(window.startTimer);
-  }, [timer]);
+  const [toggle, setToggle] = useState(true);
+  const [timeInterval, setTimeInterval] = useState(null);
 
   const start = () => {
-    window.startTimer = setInterval(() => {
-      setTimer(timer => timer + 1);
-      console.log(timer)
-    }, 1000);
+    console.log(toggle)
+    if(toggle === true) {
+      setToggle(false);
+      setTimeInterval(
+        setInterval(() => {
+        setTimer(timer => timer + 1);
+        console.log(timer)
+      }, 1000)
+      );
+    }
   };
 
   const stop = () => {
-    clearInterval(window.startTimer);
+    if(toggle === false) {
+      clearInterval(timeInterval);
+      setToggle(true)
+    }
   }
 
   const reset = () => {
-    clearInterval(window.startTimer);
+    clearInterval(timeInterval);
     setTimer(0);
+    setToggle(true);
   }
 
   return (
@@ -29,8 +37,8 @@ const Timer = () => {
       <p>
         {Math.floor(timer / 60)} mins {timer % 60} seconds
       </p>
-      <button onClick={start}>Start</button>
-      <button onClick={stop}>Stop</button>
+      <button onClick={start} className="start">Start</button>
+      <button onClick={stop} className="stop">Stop</button>
       <button onClick={reset}>Reset</button>
     </div>
   );

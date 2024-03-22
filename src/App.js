@@ -17,7 +17,7 @@ function App() {
       <Timer />
       <ProgressBar width={percent}/>
       <form>
-        <label for="percent">Input Percentage</label>
+        <label for="html">Input Percentage</label>
         <input id="percent" type="number" onChange={(e) => setPercent(e.target.value)}></input>
       </form>
     </>

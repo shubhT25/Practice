@@ -33,7 +33,7 @@ const Timer = () => {
 
   return (
     <div>
-      <h1>Timer</h1>
+      <h3 style={{marginTop: '10px'}}>Timer</h3>
       <p>
         {Math.floor(timer / 60)} mins {timer % 60} seconds
       </p>

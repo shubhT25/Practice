@@ -6,6 +6,7 @@ import Timer from './components/Timer';
 import ProgressBar from './components/ProgressBar';
 import { useState } from "react";
 import ClickBait from './components/ClickBait';
+import Form from './components/Form';
 
 var names = ['Shubham'];
 function App() {
@@ -25,6 +26,8 @@ function App() {
       </form>
       <br/>
       <ClickBait/>
+      <br />
+      <Form />
     </>
   );
 }
